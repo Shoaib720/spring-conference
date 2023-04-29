@@ -3,9 +3,11 @@ import ml.hadiya.repositories.SpeakerRepository;
 import ml.hadiya.services.SpeakerService;
 import ml.hadiya.services.SpeakerServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan({"ml.hadiya"})
 public class AppConfig {
 
     /*
@@ -18,13 +20,13 @@ public class AppConfig {
     * throughout application.
     * */
 
-    @Bean(name = "speakerService")
-    public SpeakerService getSpeakerService() {
-        return new SpeakerServiceImpl(getSpeakerRepository());
-    }
-
-    @Bean("speakerRepository")
-    public SpeakerRepository getSpeakerRepository() {
-        return new HibernateSpeakerRepositoryImpl();
-    }
+//    @Bean(name = "speakerService")
+//    public SpeakerService getSpeakerService() {
+//        return new SpeakerServiceImpl();
+//    }
+//
+//    @Bean("speakerRepository")
+//    public SpeakerRepository getSpeakerRepository() {
+//        return new HibernateSpeakerRepositoryImpl();
+//    }
 }
